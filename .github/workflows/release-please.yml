@@ -27,6 +27,15 @@ jobs:
     if: ${{ needs.release-please.outputs.release_created }}
     runs-on: ubuntu-latest
     steps:
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            ghcr.io/${{ github.repository }}
+          tags: |
+            type=match,pattern=netzgrafik-frontend-v(\d.\d.\d),group=1
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -41,12 +50,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: |
-            ${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}.${{ needs.release-please.outputs.patch }}
-            ${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}
-          labels: |
-            ${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}.${{ needs.release-please.outputs.patch }}
-            ${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
   release-npm-package:
     needs: release-please
