@@ -27,16 +27,6 @@ jobs:
     if: ${{ needs.release-please.outputs.release_created }}
     runs-on: ubuntu-latest
     steps:
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: |
-            ghcr.io/${{ github.repository }}
-          tags: |
-            type=semver,pattern={{ needs.release-please.outputs.major }}.{{ needs.release-please.outputs.major }}.{{ needs.release-please.outputs.patch }}
-            type=semver,pattern={{ needs.release-please.outputs.major }}.{{ needs.release-please.outputs.minor }}
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -51,8 +41,12 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: |
+            ${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}.${{ needs.release-please.outputs.patch }}
+            ${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}
+          labels: |
+            ${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}.${{ needs.release-please.outputs.patch }}
+            ${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}
 
   release-npm-package:
     needs: release-please
