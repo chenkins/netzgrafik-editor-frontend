@@ -1,10 +1,10 @@
-on:
-  push:
-    tags:
-      - '*'
-
-permissions:
-  packages: write
+#on:
+#  push:
+#    tags:
+#      - '*'
+#
+#permissions:
+#  packages: write
 
 name: release
 
