@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.9](https://github.com/chenkins/netzgrafik-editor-frontend/compare/netzgrafik-frontend-v2.7.8...netzgrafik-frontend-v2.7.9) (2024-08-06)
+
+
+### Miscellaneous Chores
+
+* release 2.7.9 ([e87b0b2](https://github.com/chenkins/netzgrafik-editor-frontend/commit/e87b0b22d19af39c97961a635554df0103921a7c))
+
 ## [2.7.8](https://github.com/chenkins/netzgrafik-editor-frontend/compare/netzgrafik-frontend-v2.7.7...netzgrafik-frontend-v2.7.8) (2024-08-06)
 
 
