@@ -1,7 +1,7 @@
 on:
   push:
     tags:
-      - v**
+      - netzgrafik-frontend-v**
 
 permissions:
   packages: write
