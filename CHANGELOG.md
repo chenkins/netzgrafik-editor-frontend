@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.4](https://github.com/chenkins/netzgrafik-editor-frontend/compare/netzgrafik-frontend-v2.8.6...netzgrafik-frontend-v3.3.4) (2024-08-08)
+
+
+### Miscellaneous Chores
+
+* release 3.3.4 ([cfd30c8](https://github.com/chenkins/netzgrafik-editor-frontend/commit/cfd30c8a065bde169a871f2005a11848c97ae128))
+
 ## [2.8.6](https://github.com/chenkins/netzgrafik-editor-frontend/compare/netzgrafik-frontend-v2.8.5...netzgrafik-frontend-v2.8.6) (2024-08-08)
 
 
